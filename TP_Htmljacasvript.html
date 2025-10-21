@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire d'Inscription</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+
+</head>
+<body>
+    <form class="row g-3 needs-validation" novalidate style="padding: 1em;">
+        <div class="mb-3">
+            <label for="InputEmail" class="form-label" style="font-weight: bold;">Email</label>
+            <input type="email" class="form-control" id="InputEmail">
+        </div>
+    <div class="mb-3">
+        <label for="validationpsw" class="form-label" style="font-weight: bold;">Mot de passe</label>
+        <input type="password" class="form-control" id="validationpsw" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" aria-describedby="inputGroupPrepend">
+        <div class="invalid-feedback">
+            Le mot de passe doit contenir au moins 8 caractères, une majuscule, une minuscule, un chiffre et un caractère spécial.
+        </div>
+    </div>
+    <div class="mb-3">
+        <label for="validationbirthday" class="form-label" style="font-weight: bold;">Date de Naissance</label>
+        <input type="date" class="form-control" id="validationbirthday" max="2025-10-21" aria-describedby="inputGroupPrepend">
+        <div class="invalid-feedback">
+            Veuillez choisir une date antérieur à aujourd'hui.
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Soumettre</button>
+    </form>
+</body>
+<script>
+(() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})()
+
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</html>
